@@ -7,27 +7,27 @@ $('#searchButton').click(function() {
           url: Url,
           method: "GET",
           success: function(response) {
-              var search=[];
-
-              var Src=response.Search
+        var Src=response.Search
               for (i = 0; i < Src; i++) {
               var imageSrc = Src[i].Poster;
               // imageHTtml = "//.png"
               var imageHtml="<img src="+imageSrc+">";
               var titleSrc=response.Search[i].Title;
                    var titleHtml="<p>"+titleSrc+"</p>";
-                   var yearSrc=response.Search[i].year;
+                   var yearSrc=response.Search[i].Year;
                    var yearHtml="<p>"+yearSrc+"</p>";
+                   var search=[imageHtml,titleHtml,yearHtml];
+                   $("body").append(search);
 }
 
 
-                             console.log(imageSrc);
 
 
 
 
 
-              $("body").append(imageHtml);
+
+
           },
         });
     });
