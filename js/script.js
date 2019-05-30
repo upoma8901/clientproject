@@ -20,7 +20,7 @@ $('#searchButton').click(function() {
                 <p>${title}</p>
                 <p>${year}</p>
                 `
-                $("body").append(html);
+                $("#movie").append(html);
             }
         },
     });
