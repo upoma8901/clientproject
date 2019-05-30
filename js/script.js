@@ -1,37 +1,31 @@
+/* global $ */
+
 $('#searchButton').click(function() {
-        var searchTerm=$("#searchTerm").val();
-        var Url="https://www.omdbapi.com/?apikey=8e9ded79&y=2016&s="+searchTerm;
+    var searchTerm=$("#searchTerm").val();
+    var url="https://www.omdbapi.com/?apikey=8e9ded79&y=2016&s="+searchTerm;
 
-
-        $.ajax({
-          url: Url,
-          method: "GET",
-          success: function(response) {
-        var Src=response.Search
-              for (i = 0; i < Src; i++) {
-              var imageSrc = Src[i].Poster;
-              // imageHTtml = "//.png"
-              var imageHtml="<img src="+imageSrc+">";
-              var titleSrc=response.Search[i].Title;
-                   var titleHtml="<p>"+titleSrc+"</p>";
-                   var yearSrc=response.Search[i].Year;
-                   var yearHtml="<p>"+yearSrc+"</p>";
-                   var search=[imageHtml,titleHtml,yearHtml];
-                   $("body").append(search);
-}
-
-
-
-
-
-
-
-
-
-          },
-        });
+    $.ajax({
+        url: url,
+        method: "GET",
+        success: function(response) {
+            console.log('response', response)
+            var movies=response.Search
+            for (i = 0; i < movies.length; i++) {
+                var movie = movies[i];
+                var imageSrc = movie.Poster;
+                var title = movie.Title;
+                var year = movie.Year;
+                var html = `
+                <img src='${imageSrc}' />
+                <p>${title}</p>
+                <p>${year}</p>
+                `
+                $("body").append(html);
+            }
+        },
     });
-    /* global $ */
+});
+
 
 console.log('hi');
 
