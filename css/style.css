@@ -6,8 +6,11 @@ h1 {
   border: 1px solid blue; 
   background-color: blue
 }
+body {
+ background-image: url("https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0308/5635/seamless_vector_movie_shop_preview.png");
+}
 }
 #movie{
     display:flex;
     justify-content: center;
-}q
+}
