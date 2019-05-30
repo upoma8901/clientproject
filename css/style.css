@@ -1,3 +1,7 @@
 h1 {
   color: fuchsia;
 }
+#movie{
+    display:flex;
+    justify-content: center;
+}
